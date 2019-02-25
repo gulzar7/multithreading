@@ -60,7 +60,15 @@ class Submit_task_list
 		});
 
 		executorService.shutdown();
+		
+		
+		executorService.awaitTermination(2000L,TimeUnit.MILLISECONDS);
 
+		if(executorService.isTerminated()){
+			System.out.println("Terminated");
+		}else{
+			System.out.println("One or more tasks still remaining");
+		}
 
 	}
 
